@@ -22,12 +22,20 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import dev.shreyaspatil.easyupipayment.EasyUpiPayment;
+import dev.shreyaspatil.easyupipayment.listener.PaymentStatusListener;
+import dev.shreyaspatil.easyupipayment.model.PaymentApp;
+import dev.shreyaspatil.easyupipayment.model.TransactionDetails;
+
 public class BuyCoin extends AppCompatActivity {
 
     private static final int UPI_PAYMENT = 122;
-    AppCompatButton sellcoin , BuyNow;
-    TextView  YouGetValue;
+    private static final int UPI_PAYMENT_REQUEST_CODE = 2316516;
+    AppCompatButton sellcoin, BuyNow;
+    TextView YouGetValue;
     EditText YouPayEditText;
+    private EasyUpiPayment easyUpiPayment;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,170 +46,109 @@ public class BuyCoin extends AppCompatActivity {
         YouPayEditText = findViewById(R.id.YouPayEditText);
         YouGetValue = findViewById(R.id.YouGetValue);
         sellcoin.setOnClickListener(view -> {
-            startActivity(new Intent(BuyCoin.this,SellCoins.class));
+            startActivity(new Intent(BuyCoin.this, SellCoins.class));
         });
 
-            YouPayEditText.addTextChangedListener(new TextWatcher() {
-                @Override
-                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+        YouPayEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
-                }
+            }
 
-                @Override
-                public void onTextChanged(CharSequence s, int start, int before, int count) {
-                    if (!isEmpty(YouPayEditText) && !YouPayEditText .getText().toString().isEmpty())
-                    {
-                        try {
-                            String pay = YouPayEditText.getText().toString();
-                            double coinValue = Double.parseDouble(Variables.CoinValue); // Fixed coin value of 100
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (!isEmpty(YouPayEditText) && !YouPayEditText.getText().toString().isEmpty()) {
+                    try {
+                        String pay = YouPayEditText.getText().toString();
+                        double coinValue = Double.parseDouble(Variables.CoinValue); // Fixed coin value of 100
 
-                            // Calculate the value based on the coin value and pay amount
-                            double youGetValue = Double.parseDouble(pay) / coinValue;
+                        // Calculate the value based on the coin value and pay amount
+                        double youGetValue = Double.parseDouble(pay) / coinValue;
 
-                            // Set the calculated value as the text of YouGetValue
-                            YouGetValue.setText(String.valueOf(youGetValue));
+                        // Set the calculated value as the text of YouGetValue
+                        YouGetValue.setText(String.valueOf(youGetValue));
 
-                        }
-                        catch (Exception e)
-                        {
-                            e.printStackTrace();
-                            YouGetValue.setText("0");
-                        }
-
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        YouGetValue.setText("0");
                     }
 
                 }
 
-                @Override
-                public void afterTextChanged(Editable s) {
+            }
 
-                }
-            });
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
 
 
         BuyNow.setOnClickListener(v -> {
-            if (!isEmpty(YouPayEditText) && !YouPayEditText.getText().toString().isEmpty())
-            {
+            if (!isEmpty(YouPayEditText) && !YouPayEditText.getText().toString().isEmpty()) {
                 Toast.makeText(this, YouGetValue.getText().toString(), Toast.LENGTH_SHORT).show();
-                payUsingUpi(String.valueOf(Double.parseDouble(YouPayEditText.getText().toString())),"7095966526@kotak","JJY Coin");
-            }
-            else
-            {
+                makePayment(String.valueOf(Double.parseDouble(YouPayEditText.getText().toString())), "7095966526@kotak", "JJYCoin", "", "12156489456");
+            } else {
                 YouPayEditText.setError("Enter Value");
             }
         });
 
     }
 
-
-    public void payUsingUpi(String amount, String upiId, String name) {
-
-        // Create a URI for the UPI payment intent.
-        Uri uri = Uri.parse("upi://pay").buildUpon()
-                .appendQueryParameter("pa", upiId)
-                .appendQueryParameter("pn", name)
-                .appendQueryParameter("am", amount)
-                .build();
-
-        // Create an intent for the UPI payment.
-        Intent upiPayIntent = new Intent(Intent.ACTION_VIEW);
-        upiPayIntent.setData(uri);
-
-        // Show a dialog to the user to choose an UPI app.
-        Intent chooser = Intent.createChooser(upiPayIntent, "Pay with");
-
-        // Check if the intent resolves to an activity.
-        if (chooser.resolveActivity(getPackageManager()) != null) {
-            startActivityForResult(chooser, UPI_PAYMENT);
-        } else {
-            Toast.makeText(this, "No UPI app found, please install one to continue", Toast.LENGTH_SHORT).show();
-        }
-
+    // START PAYMENT INITIALIZATION
+    // START PAYMENT INITIALIZATION
+    public void makePayment(String amount, String upi, String name, String desc, String transactionId) {
+        // Create a new Intent to start the UPI payment activity.
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse("upi://pay?pa=" + upi + "&pn=" + name + "&am=" + amount + "&cu=INR" + "&tn=" + transactionId + "&tr=" + transactionId + "&desc=" + desc));
+        // Start the activity.
+        startActivityForResult(intent, UPI_PAYMENT_REQUEST_CODE, paymentStatusBundle());
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == UPI_PAYMENT) {
-            if (true) {
-                if (data != null) {
-                    String trxt = data.getStringExtra("response");
-                    Log.d("UPI", "onActivityResult: " + trxt);
-                    ArrayList<String> dataList = new ArrayList<>();
-                    dataList.add(trxt);
-                    upiPaymentDataOperation(dataList);
-                } else {
-                    Log.d("UPI", "onActivityResult: " + "Return data is null");
-                    ArrayList<String> dataList = new ArrayList<>();
-                    dataList.add("nothing");
-                    upiPaymentDataOperation(dataList);
-                }
+        if (requestCode == UPI_PAYMENT_REQUEST_CODE) {
+            String paymentStatus = "";
+            if (resultCode == RESULT_OK) {
+                paymentStatus = "success";
+            } else if (resultCode == RESULT_CANCELED) {
+                paymentStatus = "failure";
             } else {
-                Log.d("UPI", "onActivityResult: " + "Return data is null"); //when user simply back without payment
-                ArrayList<String> dataList = new ArrayList<>();
-                dataList.add("nothing");
-                upiPaymentDataOperation(dataList);
+                paymentStatus = "pending";
+            }
+
+            if (onPaymentStatus != null) {
+                onPaymentStatus.run(paymentStatus);
             }
         }
     }
 
-    private void upiPaymentDataOperation(ArrayList<String> data) {
-        if (isConnectionAvailable()) {
-            String str = data.get(0);
-            Log.d("UPIPAY", "upiPaymentDataOperation: " + str);
-            String paymentCancel = "";
-            if (str == null) str = "discard";
-            String status = "";
-            String approvalRefNo = "";
-            String[] response = str.split("&");
-            for (String s : response) {
-                String[] equalStr = s.split("=");
-                if (equalStr.length >= 2) {
-                    if (equalStr[0].toLowerCase().equals("status")) {
-                        status = equalStr[1].toLowerCase();
-                    } else if (equalStr[0].toLowerCase().equals("approvalrefno") || equalStr[0].toLowerCase().equals("txnref")) {
-                        approvalRefNo = equalStr[1];
-                    }
-                } else {
-                    paymentCancel = "Payment cancelled by user.";
-                }
-            }
-
-            if (status.equals("success")) {
-                //Code to handle successful transaction here.
-                Toast.makeText(this, "Transaction successful.", Toast.LENGTH_SHORT).show();
-                Log.d("UPI", "responseStr: " + approvalRefNo);
-            } else if ("Payment cancelled by user.".equals(paymentCancel)) {
-                Toast.makeText(this, "Payment cancelled by user.", Toast.LENGTH_SHORT).show();
-            } else {
-                Toast.makeText(this, "Transaction failed.Please try again", Toast.LENGTH_SHORT).show();
-            }
-        } else {
-            Toast.makeText(this, "Internet connection is not available. Please check and try again", Toast.LENGTH_SHORT).show();
-        }
+    private final RunnableWithParam<String> onPaymentStatus = paymentStatus -> {
+        // Handle payment status logic here
+        // Retrieve the status message from the Bundle based on the payment status
+        String statusMessage = paymentStatusBundle().getString(paymentStatus);
+        Toast.makeText(BuyCoin.this, statusMessage, Toast.LENGTH_SHORT).show();
+    };
+    public interface RunnableWithParam<T> {
+        void run(T param);
     }
 
-    private boolean isConnectionAvailable() {
-        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        if (connectivityManager != null) {
-            NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
-            if (networkInfo != null && networkInfo.isAvailable() && networkInfo.isConnected()) {
-                return true;
-            }
-        }
-        return false;
+    private Bundle paymentStatusBundle() {
+        Bundle bundle = new Bundle();
+        bundle.putString("success", "Payment successful");
+        bundle.putString("failure", "Payment failed");
+        bundle.putString("pending", "Payment pending");
+        return bundle;
     }
 
     private boolean isEmpty(EditText etText) {
         return etText.getText().toString().trim().length() == 0;
     }
 
-
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
-        finish();
-    }
 
+    }
 }
