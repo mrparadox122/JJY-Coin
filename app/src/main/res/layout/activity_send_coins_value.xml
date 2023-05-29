@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/sendcoinsvaluebackground"
+    tools:context=".ui.SendCoinsValue">
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:background="@drawable/baseline_arrow_back_24"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="5dp"
+        android:id="@+id/BackButton"/>
+
+
+    
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Send Coins"
+        android:fontFamily="@font/coda"
+        android:layout_below="@id/BackButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="35dp"
+        android:textSize="35dp"
+        android:textColor="@color/black"
+        android:id="@+id/Send_coins_Textview"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/ibarra_real_nova"
+        android:layout_below="@id/Send_coins_Textview"
+        android:layout_centerHorizontal="true"
+        android:textSize="30dp"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/black"
+        android:text="Please Enter the Amount"
+        android:id="@+id/Please_enter_The_Amount_TextView"
+        />
+
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:fontFamily="@font/ibarra_real_nova"
+        android:textSize="35dp"
+        android:text="0"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:maxLength="4"
+        android:id="@+id/Send_Coins_Value_EditText"
+        />
+    
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="191dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="187dp"
+        android:background="@drawable/custombutton"
+        android:text="Send Coins"
+        android:textAllCaps="false"
+        android:textSize="30dp"
+        android:fontFamily="@font/ibarra_real_nova"
+        android:id="@+id/Send_Coins_Value_Send_Button"/>
+
+</RelativeLayout>

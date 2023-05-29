@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/recivecoinpage"
+    tools:context=".ReceiveCoin">
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/ReciveCoinBackButton"
+        android:layout_width="36dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/round_arrow_back_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Receive Coins"
+        android:fontFamily="@font/ibarra_real_nova"
+        android:id="@+id/ReceiveCoinTextView"
+        android:textColor="@color/black"
+        android:textSize="35dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="22dp"
+        app:layout_constraintTop_toBottomOf="@+id/ReciveCoinBackButton" />
+
+    <TextView
+        android:id="@+id/scanqr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Scan QR"
+        android:fontFamily="@font/ibarra_real_nova"
+        android:textColor="@color/black"
+        android:textSize="23sp"
+        app:layout_constraintEnd_toEndOf="@+id/ReceiveCoinTextView"
+        app:layout_constraintStart_toStartOf="@+id/ReceiveCoinTextView"
+        app:layout_constraintTop_toBottomOf="@+id/ReceiveCoinTextView" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="322dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:id="@+id/QrImageView"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/scanqr" />
+
+    <TextView
+        android:id="@+id/sendmoney"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/ibarra_real_nova"
+        android:text="Or Send Money on this account \n number manually"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:layout_marginTop="26dp"
+        android:textSize="23sp"
+        app:layout_constraintEnd_toEndOf="@+id/QrImageView"
+        app:layout_constraintStart_toStartOf="@+id/QrImageView"
+        app:layout_constraintTop_toBottomOf="@+id/QrImageView" />
+
+    <TextView
+        android:id="@+id/accountnumbertext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Account Number :- 699995"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:layout_marginTop="21dp"
+        android:textSize="23sp"
+        android:fontFamily="@font/ibarra_real_nova"
+        app:layout_constraintEnd_toEndOf="@+id/sendmoney"
+        app:layout_constraintStart_toStartOf="@+id/sendmoney"
+        app:layout_constraintTop_toBottomOf="@+id/sendmoney" />
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

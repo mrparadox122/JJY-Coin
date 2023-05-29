@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/createanaccountbackground"
+    tools:context=".Create_an_account">
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="36dp"
+        android:layout_height="24dp"
+        android:id="@+id/backbutton_createaccount"
+        android:background="@drawable/round_arrow_back_24"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="7dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/backbutton_createaccount"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="35dp"
+        android:fontFamily="@font/coda"
+        android:text="Create an Account"
+        android:id="@+id/createaccounttext"
+        android:textColor="@color/black"
+        android:textSize="40sp"/>
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_below="@id/createaccounttext"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/reffralcode"
+        android:layout_marginStart="11dp"
+        android:layout_marginTop="54dp"
+        android:layout_marginEnd="11dp"
+        android:background="@drawable/customedittext"
+        android:hint="Reffral code"
+        android:paddingStart="14dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textSize="20sp" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_below="@id/reffralcode"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/fullname"
+        android:layout_marginStart="11dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="11dp"
+        android:background="@drawable/customedittext"
+        android:hint="Full name"
+        android:paddingStart="14dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textSize="20sp" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_below="@id/fullname"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:inputType="number"
+        android:id="@+id/mobilenumber"
+        android:layout_marginStart="11dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="11dp"
+        android:background="@drawable/customedittext"
+        android:hint="Mobile Number"
+        android:paddingStart="14dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textSize="20sp" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_below="@id/mobilenumber"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/Dateofbirth"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:layout_marginStart="11dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="11dp"
+        android:background="@drawable/customedittext"
+        android:hint="Date of Birth"
+        android:paddingStart="14dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textSize="20sp" />
+
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_below="@id/Dateofbirth"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/username"
+        android:layout_marginStart="11dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="11dp"
+        android:background="@drawable/customedittext"
+        android:hint="Username"
+        android:paddingStart="14dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textSize="20sp" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_below="@id/username"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/Password"
+        android:inputType="textPassword"
+        android:layout_marginStart="11dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="11dp"
+        android:background="@drawable/customedittext"
+        android:hint="Password"
+        android:paddingStart="14dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textSize="20sp" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="190dp"
+        android:layout_height="45dp"
+        android:background="@drawable/custombutton"
+        android:layout_below="@id/Password"
+        android:id="@+id/SendOTP"
+        android:layout_marginTop="54dp"
+        android:layout_centerHorizontal="true"
+        android:text="Send OTP"
+        android:textSize="20sp"
+        android:textAllCaps="false"
+        />
+
+
+
+
+
+
+</RelativeLayout>

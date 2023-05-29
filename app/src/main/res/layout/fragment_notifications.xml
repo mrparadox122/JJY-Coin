@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.notifications.NotificationsFragment"
+    android:background="@drawable/profilepage">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="103dp"
+        android:layout_height="103dp"
+        app:civ_border_width="2dp"
+        android:layout_marginTop="78dp"
+        android:id="@+id/profilepic"
+        android:layout_centerHorizontal="true"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="35dp"
+        android:textColor="@color/black"
+        android:id="@+id/name"
+        android:text="Paradox"
+        android:layout_below="@id/profilepic"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/name"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:text="Account Number :- 55242"
+        android:id="@+id/accountnumber"
+        android:textColor="@color/black"
+        android:fontFamily="@font/ibarra_real_nova"
+        android:textSize="25dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/accountnumber"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="18dp"
+        android:text="Date of Birth :- 2001/10/15"
+        android:id="@+id/dateofbirth"
+        android:textColor="@color/black"
+        android:fontFamily="@font/ibarra_real_nova"
+        android:textSize="25dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dateofbirth"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="18dp"
+        android:text="Phone Number:-758988864"
+        android:textColor="@color/black"
+        android:id="@+id/phonenumber"
+        android:fontFamily="@font/ibarra_real_nova"
+        android:textSize="25dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/phonenumber"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="18dp"
+        android:text="Account Status:- Active"
+        android:fontFamily="@font/ibarra_real_nova"
+        android:id="@+id/accountStatus"
+        android:textColor="@color/black"
+        android:textSize="25dp" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_below="@id/accountStatus"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="-15dp"
+        android:layout_marginTop="85dp"
+        android:layout_toEndOf="@+id/accountStatus"
+        android:background="@drawable/editcoin"/>
+
+
+
+</RelativeLayout>

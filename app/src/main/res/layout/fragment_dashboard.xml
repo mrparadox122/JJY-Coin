@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.dashboard.DashboardFragment"
+    android:background="@drawable/coinpagebackground">
+
+    <RelativeLayout
+        android:layout_width="264dp"
+        android:layout_height="101dp"
+        android:background="@drawable/customshapeleft"
+        android:layout_marginTop="109dp"
+        android:id="@+id/CurrentValueRelativeLayoutCoinPage"
+
+        >
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@drawable/logoo"
+            android:layout_centerVertical="true"
+            android:id="@+id/CurrentValueImageofcoin"
+            android:layout_marginStart="5dp"
+            />
+
+        <TextView
+            android:id="@+id/CurrentValueTextViewofcoin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="20dp"
+            android:layout_toEndOf="@+id/CurrentValueImageofcoin"
+            android:fontFamily="@font/ibarra_real_nova"
+            android:text="Current Value"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/AvalableCoins"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/CurrentValueTextViewofcoin"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="13dp"
+            android:layout_toEndOf="@+id/CurrentValueImageofcoin"
+            android:fontFamily="@font/ibarra_real_nova"
+            android:text="1"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="30sp" />
+
+
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:layout_width="150dp"
+        android:layout_height="75dp"
+        android:background="@drawable/customshapeleft"
+        android:layout_below="@+id/CurrentValueRelativeLayoutCoinPage"
+        android:id="@+id/recivecoinRelativeLayout"
+        android:layout_marginTop="56dp">
+
+        <ImageView
+            android:layout_width="49dp"
+            android:layout_height="49dp"
+            android:background="@drawable/recivecoin"
+            android:layout_centerVertical="true"
+            android:scaleType="fitCenter"
+            android:id="@+id/recivecoinimageview"
+            android:layout_marginStart="5dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Receive Coins"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:fontFamily="@font/ibarra_real_nova"
+            android:layout_toEndOf="@+id/recivecoinimageview"
+            android:layout_centerVertical="true"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="150dp"
+        android:layout_height="75dp"
+        android:background="@drawable/customshapeleft"
+        android:layout_below="@id/recivecoinRelativeLayout"
+        android:id="@+id/buycoinRelativeLayout"
+        android:layout_marginTop="56dp">
+
+        <ImageView
+            android:layout_width="49dp"
+            android:layout_height="49dp"
+            android:background="@drawable/recivecoin"
+            android:layout_centerVertical="true"
+            android:scaleType="fitCenter"
+            android:id="@+id/buyimageview"
+            android:layout_marginStart="5dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Buy Coins"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:fontFamily="@font/ibarra_real_nova"
+            android:layout_toEndOf="@+id/buyimageview"
+            android:layout_centerVertical="true"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="150dp"
+        android:layout_height="75dp"
+        android:background="@drawable/customshapeleft"
+        android:layout_below="@id/buycoinRelativeLayout"
+        android:id="@+id/BuyHistoryRelativelayout"
+        android:layout_marginTop="56dp">
+
+        <ImageView
+            android:layout_width="49dp"
+            android:layout_height="49dp"
+            android:background="@drawable/recivecoin"
+            android:layout_centerVertical="true"
+            android:scaleType="fitCenter"
+            android:id="@+id/BuyHistoryimageView"
+            android:layout_marginStart="5dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Buy History"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:fontFamily="@font/ibarra_real_nova"
+            android:layout_toEndOf="@+id/BuyHistoryimageView"
+            android:layout_centerVertical="true"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="150dp"
+        android:layout_height="75dp"
+        android:background="@drawable/customshaperight"
+        android:layout_below="@+id/CurrentValueRelativeLayoutCoinPage"
+        android:id="@+id/sendcoinRelativeLayout"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="56dp">
+
+        <ImageView
+            android:layout_width="49dp"
+            android:layout_height="49dp"
+            android:background="@drawable/sendcoin"
+            android:layout_centerVertical="true"
+            android:scaleType="fitCenter"
+            android:id="@+id/sendcoinimageview"
+            android:layout_marginStart="15dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Send Coins"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:fontFamily="@font/ibarra_real_nova"
+            android:layout_toEndOf="@+id/sendcoinimageview"
+            android:layout_centerVertical="true"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="150dp"
+        android:layout_height="75dp"
+        android:background="@drawable/customshaperight"
+        android:layout_below="@id/sendcoinRelativeLayout"
+        android:id="@+id/sellcoinRelativeLayout"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="56dp">
+        
+        <ImageView
+            android:layout_width="49dp"
+            android:layout_height="49dp"
+            android:background="@drawable/sendcoin"
+            android:layout_centerVertical="true"
+            android:scaleType="fitCenter"
+            android:id="@+id/sellcoinimageview"
+            android:layout_marginStart="15dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sell Coins"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:fontFamily="@font/ibarra_real_nova"
+            android:layout_toEndOf="@+id/sellcoinimageview"
+            android:layout_centerVertical="true"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="150dp"
+        android:layout_height="75dp"
+        android:background="@drawable/customshaperight"
+        android:layout_below="@+id/sellcoinRelativeLayout"
+        android:id="@+id/sellhistory"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="56dp">
+
+        <ImageView
+            android:layout_width="49dp"
+            android:layout_height="49dp"
+            android:background="@drawable/sendcoin"
+            android:layout_centerVertical="true"
+            android:scaleType="fitCenter"
+            android:id="@+id/sellhistorycoinimageview"
+            android:layout_marginStart="15dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sell History"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:fontFamily="@font/ibarra_real_nova"
+            android:layout_toEndOf="@+id/sellhistorycoinimageview"
+            android:layout_centerVertical="true"/>
+
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

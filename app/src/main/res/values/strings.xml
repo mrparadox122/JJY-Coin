@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">JJY Coin</string>
+    <string name="ForgitPassword"><u>Forgot Password</u></string>
+    <string name="Createanaccount"><u>Create an account </u></string>
+    <string name="title_activity_home_screen">HomeScreen</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Coin</string>
+    <string name="title_notifications">Profile</string>
+</resources>
