@@ -33,7 +33,7 @@ android {
 
 dependencies {
 
-    implementation 'dev.shreyaspatil.EasyUpiPayment:EasyUpiPayment:3.0.3'
+    implementation 'com.saadahmedev.popup-dialog:popup-dialog:1.0.2'
     implementation 'com.intuit.sdp:sdp-android:1.1.0'
     implementation 'com.github.timonknispel:KTLoadingButton:1.2.0'
     implementation 'de.hdodenhof:circleimageview:3.1.0'

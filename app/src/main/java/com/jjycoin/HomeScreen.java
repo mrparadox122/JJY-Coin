@@ -2,6 +2,7 @@ package com.jjycoin;
 
 import static android.content.ContentValues.TAG;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -29,6 +30,7 @@ import java.util.Objects;
 public class HomeScreen extends AppCompatActivity {
 
     private ActivityHomeScreenBinding binding;
+    public static Activity activity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +40,7 @@ public class HomeScreen extends AppCompatActivity {
         binding = ActivityHomeScreenBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        activity = this;
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each

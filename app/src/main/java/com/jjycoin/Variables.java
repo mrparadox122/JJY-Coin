@@ -3,6 +3,9 @@ package com.jjycoin;
 public class Variables {
     public static String userId;
     public static String phoneNumber;
+    public static String Name;
+
+    public static String APiKey = "s4fRbJ5w6Klm2Nc3";
     public static String accountNumber;
     public static String dateOfBirth;
     public static String referralCode;

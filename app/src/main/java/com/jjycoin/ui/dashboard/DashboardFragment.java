@@ -18,7 +18,10 @@ import com.jjycoin.R;
 import com.jjycoin.ReceiveCoin;
 import com.jjycoin.SellCoins;
 import com.jjycoin.SendCoins;
+import com.jjycoin.Variables;
 import com.jjycoin.databinding.FragmentDashboardBinding;
+import com.jjycoin.ui.BuyHistory.Buy_Histroy;
+import com.jjycoin.ui.SellHistory.Sell_History;
 
 public class DashboardFragment extends Fragment {
 
@@ -26,11 +29,15 @@ public class DashboardFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        DashboardViewModel dashboardViewModel =
-                new ViewModelProvider(this).get(DashboardViewModel.class);
 
         binding = FragmentDashboardBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
+        SetClicks(root);
+        return root;
+    }
+
+    public void SetClicks(View root)
+    {
         RelativeLayout recivecoins = root.findViewById(R.id.recivecoinRelativeLayout);
         recivecoins.setOnClickListener(view -> {
             startActivity(new Intent(root.getContext(), ReceiveCoin.class));
@@ -47,9 +54,16 @@ public class DashboardFragment extends Fragment {
         sellcoins.setOnClickListener(view -> {
             startActivity(new Intent(root.getContext(), SellCoins.class));
         });
-        return root;
-    }
+        RelativeLayout SellHistory = root.findViewById(R.id.sellhistory);
+        SellHistory.setOnClickListener(v -> {
+            startActivity(new Intent(requireContext(), Sell_History.class));
+        });
 
+        binding.BuyHistoryRelativelayout.setOnClickListener(v -> {
+            startActivity(new Intent(requireContext(),Buy_Histroy.class));
+        });
+        binding.CurrentValueCoinPage.setText(Variables.CoinValue);
+    }
     @Override
     public void onDestroyView() {
         super.onDestroyView();

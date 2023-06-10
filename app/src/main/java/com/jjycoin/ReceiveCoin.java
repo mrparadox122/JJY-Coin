@@ -10,6 +10,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidmads.library.qrgenearator.QRGContents;
 import androidmads.library.qrgenearator.QRGEncoder;
@@ -18,6 +19,7 @@ public class ReceiveCoin extends AppCompatActivity {
     String inputValue;
     ImageView qr;
     AppCompatButton BackButton;
+    TextView accountnumbertext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +28,10 @@ public class ReceiveCoin extends AppCompatActivity {
         getSupportActionBar().hide();
 
         BackButton = findViewById(R.id.ReciveCoinBackButton);
-        inputValue = "5242";
+        accountnumbertext = findViewById(R.id.accountnumbertext);
+        accountnumbertext.append(Variables.accountNumber);
+        accountnumbertext.setSelected(true);
+        inputValue = Variables.accountNumber;
         qr = findViewById(R.id.QrImageView);
         // Initializing the QR Encoder with your value to be encoded, type you required and Dimension
         QRGEncoder qrgEncoder = new QRGEncoder(inputValue, null, QRGContents.Type.TEXT, 500);

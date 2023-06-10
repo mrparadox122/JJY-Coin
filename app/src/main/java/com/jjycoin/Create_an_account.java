@@ -1,5 +1,7 @@
 package com.jjycoin;
 
+import static android.content.ContentValues.TAG;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.AppCompatEditText;
@@ -8,6 +10,7 @@ import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -159,7 +162,7 @@ public class Create_an_account extends AppCompatActivity {
             if (putData.startPut()) {
                 if (putData.onComplete()) {
                     String result = putData.getResult();
-                    // Parse the result and handle the response
+                    Log.i(TAG, result);
                 }
             }
         }).start();
@@ -199,6 +202,7 @@ public class Create_an_account extends AppCompatActivity {
                             etOtp.setError("Enter a correct OTP");
                         } else {
                             // Do something with the input text
+                            signupApi();
                             dialog.dismiss();
                         }
                     }

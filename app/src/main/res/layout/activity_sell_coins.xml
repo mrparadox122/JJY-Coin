@@ -15,19 +15,19 @@
         android:id="@+id/SellCoinsTextView"
         android:textColor="@color/black"
         android:fontFamily="@font/coda"
-        android:layout_marginTop="95dp"
+        android:layout_marginTop="@dimen/_95sdp"
         android:layout_centerHorizontal="true"
         />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="56dp"
+        android:layout_height="@dimen/_42sdp"
         android:background="@drawable/customedittext"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="@dimen/_20sdp"
         android:layout_below="@+id/SellCoinsTextView"
         android:id="@+id/SellBuySellLinearLayout"
-        android:layout_marginTop="37dp"
-        android:layout_marginEnd="20dp">
+        android:layout_marginTop="@dimen/_37sdp"
+        android:layout_marginEnd="@dimen/_20sdp">
 
         <androidx.appcompat.widget.AppCompatButton
             android:layout_width="130dp"
@@ -56,10 +56,10 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="91dp"
+        android:layout_height="@dimen/_70sdp"
         android:background="@drawable/custombutton"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
         android:id="@+id/YouPayRelativeLayout"
         android:layout_below="@id/SellBuySellLinearLayout"
         android:layout_marginTop="37dp"
@@ -75,7 +75,7 @@
             android:id="@+id/YouPayTextView"
             android:layout_marginTop="16dp"/>
 
-        <TextView
+        <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/YouPayTextView"
@@ -84,18 +84,18 @@
             android:layout_marginTop="1dp"
             android:textAlignment="center"
             android:fontFamily="@font/ibarra_real_nova"
-            android:text="10"
+            android:hint="0"
+            android:textColorHint="#BFBFBF"
             android:textColor="@color/black"
-            android:textSize="20dp" />
+            android:textSize="20dp"
+            android:maxLength="2"
+            android:inputType="number"
+            android:id="@+id/YouSellCoin"/>
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:layout_width="81dp"
-            android:layout_height="45dp"
-            android:background="@drawable/customedittext"
-            android:textColor="@color/black"
-            android:textAlignment="center"
-            android:textAllCaps="false"
-            android:text="Coins"
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/coin"
             android:layout_centerVertical="true"
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="24dp"
@@ -104,10 +104,10 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="91dp"
+        android:layout_height="@dimen/_70sdp"
         android:background="@drawable/custombutton"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
         android:id="@+id/YouGetRelativeLayout"
         android:layout_below="@id/YouPayRelativeLayout"
         android:layout_marginTop="37dp"
@@ -129,10 +129,11 @@
             android:layout_below="@+id/YouGetTextView"
             android:layout_alignStart="@+id/YouGetTextView"
             android:layout_alignEnd="@+id/YouGetTextView"
+            android:id="@+id/YouGetSellValue"
             android:layout_marginTop="1dp"
             android:textAlignment="center"
             android:fontFamily="@font/ibarra_real_nova"
-            android:text="100"
+            android:text="0"
             android:textColor="@color/black"
             android:textSize="20dp" />
 
@@ -143,7 +144,8 @@
             android:textColor="@color/black"
             android:textAlignment="center"
             android:textAllCaps="false"
-            android:text="Rupees"
+            android:text="₹"
+            android:textSize="@dimen/_25sdp"
             android:layout_centerVertical="true"
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="24dp"
@@ -152,18 +154,19 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="@dimen/_40sdp"
         android:layout_below="@id/YouGetRelativeLayout"
         android:layout_alignStart="@+id/YouGetRelativeLayout"
         android:layout_alignEnd="@+id/YouGetRelativeLayout"
-        android:layout_marginStart="70dp"
-        android:layout_marginTop="52dp"
-        android:layout_marginEnd="70dp"
+        android:layout_marginStart="@dimen/_70sdp"
+        android:layout_marginTop="@dimen/_52sdp"
+        android:layout_marginEnd="@dimen/_70sdp"
         android:background="@drawable/custombutton"
         android:textColor="@color/black"
         android:textSize="25dp"
         android:text="Sell"
         android:textAllCaps="false"
+        android:id="@+id/SellcoinButton"
         android:fontFamily="@font/ibarra_real_nova"
         />
 

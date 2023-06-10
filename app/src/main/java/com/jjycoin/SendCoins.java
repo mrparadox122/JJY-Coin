@@ -7,20 +7,27 @@ import androidx.appcompat.widget.AppCompatButton;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.jjycoin.ui.SendCoinsValue;
 import com.journeyapps.barcodescanner.ScanContract;
 import com.journeyapps.barcodescanner.ScanOptions;
+import com.saadahmedsoft.popupdialog.PopupDialog;
+import com.saadahmedsoft.popupdialog.Styles;
+import com.saadahmedsoft.popupdialog.listener.OnDialogButtonClickListener;
 
 import java.util.Objects;
 
 public class SendCoins extends AppCompatActivity {
     private static final int CAMERA_REQUEST_CODE = 200;
 
+    EditText SendMannualy;
+    AppCompatButton SendMannuallyNext;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +58,30 @@ public class SendCoins extends AppCompatActivity {
             options.setOrientationLocked(true);
             barcodeLauncher.launch(options);
         });
+        SendMannualy = findViewById(R.id.editText);
+        SendMannuallyNext = findViewById(R.id.SendMannuallyNext);
+        SendMannuallyNext.setOnClickListener(v -> {
+            if (!SendMannualy.getText().toString().matches("") || SendMannualy.getText().toString().length() > 4)
+            {
+                SendCoinsValue.account_Number = SendMannualy.getText().toString();
+                startActivity(new Intent(SendCoins.this, SendCoinsValue.class));
+            }
+            else
+            {
+                PopupDialog.getInstance(this)
+                        .setStyle(Styles.ALERT)
+                        .setHeading("Uh-Oh")
+                        .setDescription("Invalid Account Number")
+                        .setCancelable(false)
+                        .showDialog(new OnDialogButtonClickListener() {
+                            @Override
+                            public void onDismissClicked(Dialog dialog) {
+                                super.onDismissClicked(dialog);
+                            }
+                        });
+            }
+        });
+
     }
 
     @Override

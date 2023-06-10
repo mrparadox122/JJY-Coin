@@ -86,6 +86,7 @@
         android:fontFamily="@font/ibarra_real_nova"
         android:text="Next"
         android:textAllCaps="false"
+        android:id="@+id/SendMannuallyNext"
         android:textColor="@color/black"
         android:textSize="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
