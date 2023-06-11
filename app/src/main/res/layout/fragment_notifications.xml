@@ -7,6 +7,14 @@
     tools:context=".ui.notifications.NotificationsFragment"
     android:background="@drawable/profilepage">
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="@dimen/_35sdp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/baseline_logout_24"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/logout"
+        />
+
     <de.hdodenhof.circleimageview.CircleImageView
         android:layout_width="103dp"
         android:layout_height="103dp"

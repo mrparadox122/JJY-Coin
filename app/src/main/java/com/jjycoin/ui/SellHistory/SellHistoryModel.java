@@ -7,11 +7,18 @@ public class SellHistoryModel {
     private String RecivedAmount;
     private String valueThen;
 
+    public String getCustomerUPI() {
+        return CustomerUPI;
+    }
+
+    private String CustomerUPI;
+
     public String getStatus() {
         return Status;
     }
 
-    public SellHistoryModel(String sellTime, String sellDate, String coins, String RecivedAmount, String valueThen, String status) {
+    public SellHistoryModel(String CustomerUPI, String sellTime, String sellDate, String coins, String RecivedAmount, String valueThen, String status) {
+        this.CustomerUPI = CustomerUPI;
         this.sellTime = sellTime;
         this.sellDate = sellDate;
         this.coins = coins;

@@ -33,8 +33,8 @@ public class HomeFragment extends Fragment {
                 binding.CurrentValue.setText(Variables.CoinValue);
                 binding.AvalableCoins.setText(Variables.coins);
                 binding.ReffralBouns.setText(Variables.referralBonus);
-                binding.AccountNo.setText(Variables.accountNumber);
-                binding.AccountNo.setSelected(true);
+                binding.reffralcodeHome.setText(Variables.referralCode);
+                binding.reffralcodeHome.setSelected(true);
             }catch (Exception e)
             {
                 e.printStackTrace();

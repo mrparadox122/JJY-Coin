@@ -17,6 +17,15 @@
             android:layout_height="wrap_content"
             android:textColor="@color/black"
             android:textStyle="bold"
+            android:text="Amount Recived UPI :-"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_6sdp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textStyle="bold"
             android:text="Coin Value Then :-"
             android:layout_marginStart="@dimen/_5sdp"
             android:layout_marginTop="@dimen/_6sdp"
@@ -76,6 +85,16 @@
         android:layout_marginStart="@dimen/_20sdp"
         android:layout_marginBottom="@dimen/_5sdp"
         >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:text="7095966526@kotak"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:id="@+id/AmountRecivedUpi"
+            />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

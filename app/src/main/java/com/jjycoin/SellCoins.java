@@ -5,12 +5,16 @@ import androidx.appcompat.widget.AppCompatButton;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
+import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.View;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.jjycoin.Apis.SellCoinApi;
@@ -40,8 +44,73 @@ public class SellCoins extends AppCompatActivity implements SellCoinApi.SellCoin
         SellcoinButton.setOnClickListener(v -> {
             if (!YouSellCoins.getText().toString().matches("") || YouSellCoins.getText().toString().length() > 1)
             {
-                SellCoinApi sellCoinApi = new SellCoinApi("pennding" ,YouSellCoins.getText().toString(),YouGetSellValue.getText().toString(),Variables.CoinValue,this );
-                sellCoinApi.CallAPi();
+                if (Float.parseFloat(YouGetSellValue.getText().toString()) >= 1)
+                {
+                    // Create an AlertDialog builder
+                    AlertDialog.Builder builder = new AlertDialog.Builder(SellCoins.this);
+                    builder.setTitle("Enter UPI ID To Receive Amount");
+
+                    // Create an EditText programmatically
+                    final EditText editText = new EditText(SellCoins.this);
+                    editText.setLayoutParams(new LinearLayout.LayoutParams(
+                            LinearLayout.LayoutParams.MATCH_PARENT,
+                            LinearLayout.LayoutParams.WRAP_CONTENT));
+                    builder.setView(editText);
+
+                    // Set the positive button (Submit)
+                    builder.setPositiveButton("Submit", null); // Set null initially
+
+                    // Create and show the dialog
+                    final AlertDialog dialog = builder.create();
+                    dialog.show();
+
+                    // Override the positive button's onClick listener after showing the dialog
+                    dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            // Get the text from the EditText
+                            String inputText = editText.getText().toString().trim();
+
+                            // Check if the input text is not empty
+                            if (!inputText.isEmpty()) {
+                                SellCoinApi sellCoinApi = new SellCoinApi("pennding", YouSellCoins.getText().toString(),
+                                        YouGetSellValue.getText().toString(), Variables.CoinValue, inputText, SellCoins.this);
+                                sellCoinApi.CallAPi();
+
+                                // Dismiss the dialog manually if the input is valid
+                                dialog.dismiss();
+                            } else {
+                                // Show an error message or handle empty input
+                                editText.setError("Enter UPI ID");
+                            }
+                        }
+                    });
+
+                    // Set the negative button (Cancel)
+                    builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            // Handle cancel button click
+                            // ...
+                        }
+                    });
+                }
+                else
+                {
+                    PopupDialog.getInstance(this)
+                            .setStyle(Styles.ALERT)
+                            .setHeading("Uh-Oh")
+                            .setDescription("Minumum 100rs Worth Of Coin Can Be Sold")
+                            .setCancelable(false)
+                            .showDialog(new OnDialogButtonClickListener() {
+                                @Override
+                                public void onDismissClicked(Dialog dialog) {
+                                    super.onDismissClicked(dialog);
+
+                                }
+                            });
+                }
+
             }
             else
             {

@@ -148,7 +148,6 @@ public class BuyCoin extends AppCompatActivity implements BuyCoinApi.BuyCoinApiL
             {
                 // Convert extras to a string
                 String extrasString = extras.getString("response");
-
                 // Split the extrasString based on the delimiter '&'
                 String[] keyValuePairs = extrasString.split("&");
 
@@ -188,12 +187,13 @@ public class BuyCoin extends AppCompatActivity implements BuyCoinApi.BuyCoinApiL
                 Log.d("txnRef", txnRef);
                 Log.d("Status", status);
                 Log.d("responseCode", responseCode);
-                if (status.equals("SUCCESS"))
+                Toast.makeText(this, status, Toast.LENGTH_LONG).show();
+                if (status.matches("SUCCESS") ||status.matches("Success") || status.equalsIgnoreCase("SUCCESS"))
                 {
                     BuyCoinApi buyCoinApi = new BuyCoinApi(txnId,txnRef,status,responseCode,YouGetValue.getText().toString(),YouPayEditText.getText().toString(),Variables.CoinValue,this);
                     buyCoinApi.CallAPi();
                 }
-                else if (status.equals("FAILURE"))
+                else if (status.matches("FAILURE"))
                 {
                     Toast.makeText(this, "Purchase Failed", Toast.LENGTH_SHORT).show();
                     PopupDialog.getInstance(this)

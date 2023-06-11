@@ -60,6 +60,7 @@ public class SellHistoryApi {
                                 JSONObject buyObject = dataArray.getJSONObject(i);
 
                                 // Fetch the values from the JSON object and create a BuyHistoryModel object
+                                String CustomerUPI = buyObject.getString("Customer_UPI");
                                 String sellTime = buyObject.getString("Sell_Time");
                                 String sellDate = buyObject.getString("Sell_Date");
                                 String coins = buyObject.getString("Coins");
@@ -67,7 +68,7 @@ public class SellHistoryApi {
                                 String valueThen = buyObject.getString("Value_Then");
                                 String Status = buyObject.getString("Status");
 
-                                SellHistoryModel sellHistoryModel = new SellHistoryModel(sellTime, sellDate, coins, RecivedAmount, valueThen,Status);
+                                SellHistoryModel sellHistoryModel = new SellHistoryModel(CustomerUPI ,sellTime, sellDate, coins, RecivedAmount, valueThen,Status);
 
                                 // Add the BuyHistoryModel object to the list
                                 sellHistoryModels.add(sellHistoryModel);

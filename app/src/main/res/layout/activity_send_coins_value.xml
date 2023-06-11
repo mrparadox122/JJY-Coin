@@ -38,9 +38,7 @@
         android:textSize="30dp"
         android:layout_marginTop="10dp"
         android:textColor="@color/black"
-        android:text="Please Enter the Amount"
-        android:id="@+id/Please_enter_The_Amount_TextView"
-        />
+        android:text="Please Enter the Amount" />
 
 
     <androidx.appcompat.widget.AppCompatEditText

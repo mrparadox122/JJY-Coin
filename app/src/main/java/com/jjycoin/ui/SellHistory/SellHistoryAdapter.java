@@ -31,6 +31,8 @@ public class SellHistoryAdapter extends RecyclerView.Adapter<SellHistoryAdapter.
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         SellHistoryModel sellHistoryModel = sellHistoryModels.get(position);
 
+        holder.AmountRecivedUpi.setText(sellHistoryModel.getCustomerUPI());
+
         holder.coinValueThenTextView.setText(sellHistoryModel.getValueThen());
         holder.RecivedAmount.setText(sellHistoryModel.getRecivedAmount());
         holder.sellTimeTextView.setText(sellHistoryModel.getSellTime());
@@ -51,6 +53,7 @@ public class SellHistoryAdapter extends RecyclerView.Adapter<SellHistoryAdapter.
         TextView sellDateTextView;
         TextView coinsTextView;
         TextView Status;
+        TextView AmountRecivedUpi;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -60,6 +63,7 @@ public class SellHistoryAdapter extends RecyclerView.Adapter<SellHistoryAdapter.
             sellDateTextView = itemView.findViewById(R.id.SellDate);
             coinsTextView = itemView.findViewById(R.id.SoldCoins);
             Status = itemView.findViewById(R.id.Status);
+            AmountRecivedUpi = itemView.findViewById(R.id.AmountRecivedUpi);
         }
     }
 }
