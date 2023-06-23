@@ -13,7 +13,7 @@ import java.util.concurrent.Executors;
 
 public class BuyCoinApi {
 
-    private BuyCoinApiListner mlistner;
+    private final BuyCoinApiListner mlistner;
     String txnId;
     String txnRef;
     String status;

@@ -16,7 +16,7 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
 public class SellHistoryApi {
-    private SellHistoryApiListner mlistner;
+    private final SellHistoryApiListner mlistner;
 
     public SellHistoryApi(SellHistoryApiListner mlistner)
     {

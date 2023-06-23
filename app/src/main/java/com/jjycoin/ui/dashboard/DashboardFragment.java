@@ -9,6 +9,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
@@ -25,6 +26,7 @@ import com.jjycoin.ui.SellHistory.Sell_History;
 
 public class DashboardFragment extends Fragment {
 
+    @Nullable
     private FragmentDashboardBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -36,7 +38,7 @@ public class DashboardFragment extends Fragment {
         return root;
     }
 
-    public void SetClicks(View root)
+    public void SetClicks(@NonNull View root)
     {
         RelativeLayout recivecoins = root.findViewById(R.id.recivecoinRelativeLayout);
         recivecoins.setOnClickListener(view -> {

@@ -1,11 +1,13 @@
 package com.jjycoin.ui.dashboard;
 
+import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 public class DashboardViewModel extends ViewModel {
 
+    @NonNull
     private final MutableLiveData<String> mText;
 
     public DashboardViewModel() {

@@ -1,11 +1,13 @@
 package com.jjycoin.ui.notifications;
 
+import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 public class NotificationsViewModel extends ViewModel {
 
+    @NonNull
     private final MutableLiveData<String> mText;
 
     public NotificationsViewModel() {

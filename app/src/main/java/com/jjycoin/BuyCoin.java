@@ -1,10 +1,5 @@
 package com.jjycoin;
 
-import static androidx.fragment.app.FragmentManager.TAG;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatButton;
-
 import android.app.Dialog;
 import android.content.Intent;
 import android.net.Uri;
@@ -15,6 +10,11 @@ import android.util.Log;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 
 import com.jjycoin.Apis.BuyCoinApi;
 import com.saadahmedsoft.popupdialog.PopupDialog;
@@ -107,11 +107,13 @@ public class BuyCoin extends AppCompatActivity implements BuyCoinApi.BuyCoinApiL
         startActivityForResult(intent, UPI_PAYMENT_REQUEST_CODE);
     }
 
+    @NonNull
     private String generateTransactionId() {
         long timestamp = System.currentTimeMillis();
         return String.valueOf(timestamp/2);
     }
 
+    @NonNull
     private String getUPIString(String payeeAddress, String payeeName, String trxnID,
                                 String payeeAmount) {
         String trxnRefId = generateTransactionId();
@@ -121,7 +123,7 @@ public class BuyCoin extends AppCompatActivity implements BuyCoinApi.BuyCoinApiL
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (resultCode== RESULT_CANCELED)
@@ -213,7 +215,7 @@ public class BuyCoin extends AppCompatActivity implements BuyCoinApi.BuyCoinApiL
         }
     }
 
-    private boolean isEmpty(EditText etText) {
+    private boolean isEmpty(@NonNull EditText etText) {
         return etText.getText().toString().trim().length() == 0;
     }
 

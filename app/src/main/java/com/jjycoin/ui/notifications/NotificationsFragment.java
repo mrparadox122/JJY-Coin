@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -19,6 +20,7 @@ import com.jjycoin.databinding.FragmentNotificationsBinding;
 
 public class NotificationsFragment extends Fragment {
 
+    @Nullable
     private FragmentNotificationsBinding binding;
 
     SharedPreferences sharedPreferences;

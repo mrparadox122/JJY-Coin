@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import com.jjycoin.Variables;
 import com.jjycoin.databinding.FragmentHomeBinding;
@@ -17,6 +18,7 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
 public class HomeFragment extends Fragment {
+    @Nullable
     private FragmentHomeBinding binding;
 
     @Override

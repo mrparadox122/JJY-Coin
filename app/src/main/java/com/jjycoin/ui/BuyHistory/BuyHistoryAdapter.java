@@ -15,7 +15,7 @@ import java.util.List;
 
 public class BuyHistoryAdapter extends RecyclerView.Adapter<BuyHistoryAdapter.ViewHolder> {
 
-    private List<BuyHistoryModel> buyHistoryList;
+    private final List<BuyHistoryModel> buyHistoryList;
 
     public BuyHistoryAdapter(List<BuyHistoryModel> buyHistoryList) {
         this.buyHistoryList = buyHistoryList;

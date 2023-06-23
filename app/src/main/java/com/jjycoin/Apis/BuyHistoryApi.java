@@ -15,7 +15,7 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
 public class BuyHistoryApi {
-    private BuyHistoryApi.BuyHistoryApiListner mlistner;
+    private final BuyHistoryApi.BuyHistoryApiListner mlistner;
 
     public BuyHistoryApi(BuyHistoryApi.BuyHistoryApiListner mlistner)
     {

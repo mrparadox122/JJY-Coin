@@ -14,7 +14,7 @@ import java.util.List;
 
 public class SellHistoryAdapter extends RecyclerView.Adapter<SellHistoryAdapter.ViewHolder> {
 
-    private List<SellHistoryModel> sellHistoryModels;
+    private final List<SellHistoryModel> sellHistoryModels;
 
     public SellHistoryAdapter(List<SellHistoryModel> sellHistoryModels) {
         this.sellHistoryModels = sellHistoryModels;

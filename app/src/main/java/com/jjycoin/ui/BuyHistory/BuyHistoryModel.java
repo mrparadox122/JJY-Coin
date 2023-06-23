@@ -1,11 +1,11 @@
 package com.jjycoin.ui.BuyHistory;
 
 public class BuyHistoryModel {
-    private String buyTime;
-    private String buyDate;
-    private String coins;
-    private String paidAmount;
-    private String valueThen;
+    private final String buyTime;
+    private final String buyDate;
+    private final String coins;
+    private final String paidAmount;
+    private final String valueThen;
 
     public String getBuyTime() {
         return buyTime;

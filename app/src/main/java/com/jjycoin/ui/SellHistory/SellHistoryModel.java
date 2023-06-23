@@ -1,17 +1,17 @@
 package com.jjycoin.ui.SellHistory;
 
 public class SellHistoryModel {
-    private String sellTime;
-    private String sellDate;
-    private String coins;
-    private String RecivedAmount;
-    private String valueThen;
+    private final String sellTime;
+    private final String sellDate;
+    private final String coins;
+    private final String RecivedAmount;
+    private final String valueThen;
 
     public String getCustomerUPI() {
         return CustomerUPI;
     }
 
-    private String CustomerUPI;
+    private final String CustomerUPI;
 
     public String getStatus() {
         return Status;
@@ -27,7 +27,7 @@ public class SellHistoryModel {
         Status = status;
     }
 
-    private String Status;
+    private final String Status;
 
     public String getSellTime() {
         return sellTime;

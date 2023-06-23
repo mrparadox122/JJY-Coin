@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "654176162317",
+    "project_id": "jjy-coin",
+    "storage_bucket": "jjy-coin.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:654176162317:android:64dece618d3b58d0e7bb44",
+        "android_client_info": {
+          "package_name": "com.jjycoin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "654176162317-5j33072f37gfjkdrtdrlpqci77olcirh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATgVJNL_bPzHkGUlMFFjHjizZ8UltSe9Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "654176162317-5j33072f37gfjkdrtdrlpqci77olcirh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
